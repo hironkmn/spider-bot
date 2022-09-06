@@ -2,8 +2,9 @@ from random import randint
 import discord
 from discord.ext import commands
 import os
+from boto.s3.connection import S3Connection
 
-
+s3 = s3 = S3Connection(os.environ['TOKEN'])
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
