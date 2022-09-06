@@ -41,7 +41,7 @@ async def photo(ctx, utilisateur):
 
 @bot.command()
 async def kiss(ctx, utilisateur):
-    kisses = ["https://i.pinimg.com/originals/03/2e/e7/032ee7d141e317b39e3f916fffc886c4.gif", "https://c.tenor.com/EPo3vP8MMD0AAAAC/spiderman-mary-jane.gif"]
+    kisses = ["https://c.tenor.com/mVhow8EMB94AAAAC/emma-andrew.gif", "https://c.tenor.com/EPo3vP8MMD0AAAAC/spiderman-mary-jane.gif"]
     aleatoire = randint(0,len(kisses)-1)
     truekiss = kisses[aleatoire]
     desc="<@" + str(ctx.author.id) +"> embrasse " + str(utilisateur)
