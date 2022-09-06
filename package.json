@@ -1,0 +1,11 @@
+{
+    "name": "spiderbot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bot.py",
+    "author": "hironkmn",
+    "license": "ISC",
+    "scripts": {
+        "start": "py -3 bot.py"
+    }
+}
