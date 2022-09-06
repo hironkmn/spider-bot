@@ -1,6 +1,7 @@
 from random import randint
 import discord
 from discord.ext import commands
+import os
 
 
 intents = discord.Intents.default()
@@ -73,4 +74,4 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-bot.run('MTAxNjMzMTI5ODg3MDE1MzI3Nw.GESou9.g6Mu-i_S-D4R4-1vw5an9Lcs4ovyL_SNNa6Hpg')
+bot.run(os.getenv('TOKEN'))
