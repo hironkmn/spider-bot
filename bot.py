@@ -39,8 +39,8 @@ async def photo(ctx, utilisateur):
 
 @bot.command()
 async def kiss(ctx, utilisateur):
-    aleatoire = str(randint(0,1))
-    kisses = {"0":"https://i.pinimg.com/originals/03/2e/e7/032ee7d141e317b39e3f916fffc886c4.gif", "1":"https://c.tenor.com/EPo3vP8MMD0AAAAC/spiderman-mary-jane.gif"}
+    kisses = ["https://i.pinimg.com/originals/03/2e/e7/032ee7d141e317b39e3f916fffc886c4.gif", "https://c.tenor.com/EPo3vP8MMD0AAAAC/spiderman-mary-jane.gif"]
+    aleatoire = str(randint(0,len(kisses)-1))
     truekiss = kisses[aleatoire]
     desc="<@" + str(ctx.author.id) +"> embrasse " + str(utilisateur)
     embed = discord.Embed(description=desc, color=0xFF5733)
@@ -49,10 +49,12 @@ async def kiss(ctx, utilisateur):
 
 @bot.command()
 async def bully(ctx, utilisateur):
-  desc = "<@" + str(ctx.author.id) + "> a décidé de faire chier " + str(utilisateur)
-  embed = discord.Embed(description=desc, color=0xFF5733)
-  embed.set_image(url="https://c.tenor.com/NeSd-6B6wl4AAAAC/tu-vas-chialer-spiderman.gif")
-  await ctx.send(embed=embed)
+    bullies = ["https://c.tenor.com/LslUNhtr0bAAAAAC/tobey-maguire-gonna-cry.gif","https://c.tenor.com/NeSd-6B6wl4AAAAC/tu-vas-chialer-spiderman.gif"]
+    aleatoire = str(randint(0,len(bullies)-1))
+    desc = "<@" + str(ctx.author.id) + "> a décidé de faire chier " + str(utilisateur)
+    embed = discord.Embed(description=desc, color=0xFF5733)
+    embed.set_image(url=bullies[aleatoire])
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def dance(ctx):
