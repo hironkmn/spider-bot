@@ -6,6 +6,6 @@
     "author": "hironkmn",
     "license": "ISC",
     "scripts": {
-        "start": "py -3 bot.py"
+        "start": "python3 bot.py"
     }
 }
