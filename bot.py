@@ -2,9 +2,10 @@ from random import randint
 import discord
 from discord.ext import commands
 import os
-from boto.s3.connection import S3Connection
+from dotenv import dotenv_values
 
-s3 = s3 = S3Connection(os.environ['TOKEN'])
+config = dotenv_values(".env")
+
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -41,7 +42,7 @@ async def photo(ctx, utilisateur):
 @bot.command()
 async def kiss(ctx, utilisateur):
     kisses = ["https://i.pinimg.com/originals/03/2e/e7/032ee7d141e317b39e3f916fffc886c4.gif", "https://c.tenor.com/EPo3vP8MMD0AAAAC/spiderman-mary-jane.gif"]
-    aleatoire = str(randint(0,len(kisses)-1))
+    aleatoire = randint(0,len(kisses)-1)
     truekiss = kisses[aleatoire]
     desc="<@" + str(ctx.author.id) +"> embrasse " + str(utilisateur)
     embed = discord.Embed(description=desc, color=0xFF5733)
@@ -51,7 +52,7 @@ async def kiss(ctx, utilisateur):
 @bot.command()
 async def bully(ctx, utilisateur):
     bullies = ["https://c.tenor.com/LslUNhtr0bAAAAAC/tobey-maguire-gonna-cry.gif","https://c.tenor.com/NeSd-6B6wl4AAAAC/tu-vas-chialer-spiderman.gif"]
-    aleatoire = str(randint(0,len(bullies)-1))
+    aleatoire = randint(0,len(bullies)-1)
     desc = "<@" + str(ctx.author.id) + "> a décidé de faire chier " + str(utilisateur)
     embed = discord.Embed(description=desc, color=0xFF5733)
     embed.set_image(url=bullies[aleatoire])
@@ -77,4 +78,4 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-bot.run(os.getenv('TOKEN'))
+bot.run(config['TOKEN'])
