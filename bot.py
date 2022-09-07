@@ -2,6 +2,7 @@ from random import randint
 import discord
 from discord.ext import commands
 from discord import app_commands
+import interaction
 import os
 
 config = os.getenv("TOKEN")
@@ -11,7 +12,7 @@ intents.members = True
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='s!', intents=intents)
-tree = app_commands.CommandTree
+client = interactions.Client(config)
 
 @bot.event
 async def on_ready():
@@ -99,7 +100,7 @@ async def hug(ctx, utilisateur: discord.Member):
 @bot.event
 async def on_message(message):
     # do some extra stuff here
-
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Spider-Man: No Way Home"))
     await bot.process_commands(message)
 
 bot.run(config)
