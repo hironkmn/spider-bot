@@ -34,27 +34,27 @@ async def hello(ctx):
     await ctx.send('Salut')
 
 @bot.command()
-async def photo(ctx, utilisateur):
-    desc="<@" + str(ctx.author.id) +"> prends en photo " + str(utilisateur)
+async def photo(ctx, utilisateur: discord.Member):
+    desc="<@" + str(ctx.author.id) +"> prends en photo " + utilisateur.mention
     embed = discord.Embed(description=desc, color=0xFF5733)
     embed.set_image(url="https://c.tenor.com/aw6SxQnpLvAAAAAd/spider-man-taking-pictures.gif")
     await ctx.send(embed=embed)
 
 @bot.command()
-async def kiss(ctx, utilisateur):
+async def kiss(ctx, utilisateur: discord.Member):
     kisses = ["https://c.tenor.com/mVhow8EMB94AAAAC/emma-andrew.gif", "https://c.tenor.com/EPo3vP8MMD0AAAAC/spiderman-mary-jane.gif"]
     aleatoire = randint(0,len(kisses)-1)
     truekiss = kisses[aleatoire]
-    desc="<@" + str(ctx.author.id) +"> embrasse " + str(utilisateur)
+    desc="<@" + str(ctx.author.id) +"> embrasse " + utilisateur.mention
     embed = discord.Embed(description=desc, color=0xFF5733)
     embed.set_image(url=truekiss)
     await ctx.send(embed=embed)
 
 @bot.command()
-async def bully(ctx, utilisateur):
+async def bully(ctx, utilisateur: discord.Member):
     bullies = ["https://c.tenor.com/LslUNhtr0bAAAAAC/tobey-maguire-gonna-cry.gif","https://c.tenor.com/NeSd-6B6wl4AAAAC/tu-vas-chialer-spiderman.gif"]
     aleatoire = randint(0,len(bullies)-1)
-    desc = "<@" + str(ctx.author.id) + "> a décidé de faire chier " + str(utilisateur)
+    desc = "<@" + str(ctx.author.id) + "> a décidé de faire chier " + utilisateur.mention
     embed = discord.Embed(description=desc, color=0xFF5733)
     embed.set_image(url=bullies[aleatoire])
     await ctx.send(embed=embed)
