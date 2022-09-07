@@ -110,7 +110,7 @@ async def death2(ctx):
 
 @client.command(
     name="hug",
-    description="Te permet de faire un calîn à la personne de ton choix. J'espère juste que tu tiens pas une pancarte free hugs à la Japan Expo..."
+    description="Te permet de faire un calîn à la personne de ton choix."
 )
 async def hug2(ctx, utilisateur: discord.Member):
     hugs = ["https://c.tenor.com/rW4HtdpmZxAAAAAd/hug-spider-man.gif","https://c.tenor.com/gG3tX97uQaQAAAAC/spiderman-iron-man.gif", "https://c.tenor.com/CtTwr740BEsAAAAC/hug-spiderman.gif"]
