@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import os
-import asyncio
 
 config = os.getenv("TOKEN")
 
@@ -12,6 +11,11 @@ intents.members = True
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='s!', intents=intents)
+
+async def setup_hook(self):
+        for ext in self.initial_extensions:
+            await self.load_extension(ext)
+        await bot.tree.sync(guild = discord.Object(id="1001141800448303195"))
 
 @bot.event
 async def on_ready():
