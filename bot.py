@@ -108,6 +108,18 @@ async def death2(ctx):
     embed.set_image(url="https://c.tenor.com/-gArcqUHlNgAAAAd/spiderman-death.gif")
     await ctx.send(embed=embed)
 
+@client.command(
+    name="hug",
+    description="Te permet de faire un calîn à la personne de ton choix. J'espère juste que tu tiens pas une pancarte free hugs à la Japan Expo..."
+)
+async def hug2(ctx, utilisateur: discord.Member):
+    hugs = ["https://c.tenor.com/rW4HtdpmZxAAAAAd/hug-spider-man.gif","https://c.tenor.com/gG3tX97uQaQAAAAC/spiderman-iron-man.gif", "https://c.tenor.com/CtTwr740BEsAAAAC/hug-spiderman.gif"]
+    aleatoire = randint(0,len(hugs)-1)
+    desc = "<@" + str(ctx.author.id) + "> serre " + utilisateur.mention + " dans ses bras."
+    embed = discord.Embed(description=desc, color=0xFF5733)
+    embed.set_image(url=hugs[aleatoire])
+    await ctx.send(embed=embed)
+
 @bot.event
 async def on_message(message):
     # do some extra stuff here
