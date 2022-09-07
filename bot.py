@@ -118,7 +118,7 @@ loop = asyncio.get_event_loop()
 
 task2 = loop.create_task(bot.start(config))
 task1 = loop.create_task(client._ready())
-gathered = asyncio.gather(task1, task2, loop=loop)
+gathered = asyncio.gather(task1, task2)
 loop.run_until_complete(gathered)
 
 
