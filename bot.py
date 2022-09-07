@@ -116,7 +116,7 @@ async def on_message(message):
 
 loop = asyncio.get_event_loop()
 
-task2 = loop.create_task(bot.start(config, bot=True))
+task2 = loop.create_task(bot.start(config))
 task1 = loop.create_task(client.ready())
 gathered = asyncio.gather(task1, task2, loop=loop)
 loop.run_until_complete(gathered)
