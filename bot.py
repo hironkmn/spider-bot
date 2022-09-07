@@ -1,6 +1,8 @@
 from random import randint
+from turtle import st
 import discord
 from discord.ext import commands
+from discord import app_commands
 import os
 
 config = os.getenv("TOKEN")
@@ -10,6 +12,7 @@ intents.members = True
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='s!', intents=intents)
+tree = app_commands.CommandTree
 
 @bot.event
 async def on_ready():
@@ -70,6 +73,29 @@ async def cry(ctx):
   embed = discord.Embed(description=desc, color=0xFF5733)
   embed.set_image(url="https://ic.pics.livejournal.com/airockz69/15946583/46385/46385_900.gif")
   await ctx.send(embed=embed)
+
+@bot.command()
+async def death(ctx):
+    desc = "<@" + str(ctx.author.id) + "> se retrouve à l'état de poussières..."
+    embed = discord.Embed(description=desc, color=0xFF5733)
+    embed.set_image(url="https://c.tenor.com/-gArcqUHlNgAAAAd/spiderman-death.gif")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def wtf(ctx):
+    desc = "<@"+ str(ctx.author.id) + "> se dit quoi de la fuck ????"
+    embed= discord.Embed(description=desc, color=0xFF5733)
+    embed.set_image(url="https://c.tenor.com/4JVPWD8GrXkAAAAC/spider-man-shocked.gif")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def hug(ctx, utilisateur: discord.Member):
+    hugs = ["https://c.tenor.com/rW4HtdpmZxAAAAAd/hug-spider-man.gif","https://c.tenor.com/gG3tX97uQaQAAAAC/spiderman-iron-man.gif", "https://c.tenor.com/CtTwr740BEsAAAAC/hug-spiderman.gif"]
+    aleatoire = randint(0,len(hugs)-1)
+    desc = "<@" + str(ctx.author.id) + "> serre " + str(utilisateur) + " dans ses bras."
+    embed = discord.Embed(description=desc, color=0xFF5733)
+    embed.set_image(url=hugs[aleatoire])
+    await ctx.send(embed=embed)
 
 @bot.event
 async def on_message(message):
