@@ -91,7 +91,7 @@ async def wtf(ctx):
 async def hug(ctx, utilisateur: discord.Member):
     hugs = ["https://c.tenor.com/rW4HtdpmZxAAAAAd/hug-spider-man.gif","https://c.tenor.com/gG3tX97uQaQAAAAC/spiderman-iron-man.gif", "https://c.tenor.com/CtTwr740BEsAAAAC/hug-spiderman.gif"]
     aleatoire = randint(0,len(hugs)-1)
-    desc = "<@" + str(ctx.author.id) + "> serre " + str(utilisateur) + " dans ses bras."
+    desc = "<@" + str(ctx.author.id) + "> serre " + utilisateur + " dans ses bras."
     embed = discord.Embed(description=desc, color=0xFF5733)
     embed.set_image(url=hugs[aleatoire])
     await ctx.send(embed=embed)
