@@ -2,7 +2,7 @@ from random import randint
 import discord
 from discord.ext import commands
 from discord import app_commands
-import interaction
+import interactions
 import os
 
 config = os.getenv("TOKEN")
