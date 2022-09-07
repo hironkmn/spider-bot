@@ -4,6 +4,7 @@ from discord.ext import commands
 from discord import app_commands
 import interactions
 import os
+import asyncio
 
 config = os.getenv("TOKEN")
 
@@ -97,10 +98,28 @@ async def hug(ctx, utilisateur: discord.Member):
     embed.set_image(url=hugs[aleatoire])
     await ctx.send(embed=embed)
 
+@client.command(
+    name="death",
+    description="Te permet de mourir. Adieu monde cruel..."
+)
+async def death2(ctx):
+    desc = "<@" + str(ctx.author.id) + "> se retrouve à l'état de poussières..."
+    embed = discord.Embed(description=desc, color=0xFF5733)
+    embed.set_image(url="https://c.tenor.com/-gArcqUHlNgAAAAd/spiderman-death.gif")
+    await ctx.send(embed=embed)
+
 @bot.event
 async def on_message(message):
     # do some extra stuff here
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Spider-Man: No Way Home"))
     await bot.process_commands(message)
 
-bot.run(config)
+loop = asyncio.get_event_loop()
+
+task2 = loop.create_task(bot.start(config, bot=True))
+task1 = loop.create_task(client.ready())
+gathered = asyncio.gather(task1, task2, loop=loop)
+loop.run_until_complete(gathered)
+
+
+##bot.run(config)
