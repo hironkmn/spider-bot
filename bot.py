@@ -1,5 +1,4 @@
 from random import randint
-from turtle import st
 import discord
 from discord.ext import commands
 from discord import app_commands
