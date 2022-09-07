@@ -2,9 +2,8 @@ from random import randint
 import discord
 from discord.ext import commands
 import os
-from dotenv import dotenv_values
 
-config = dotenv_values(".env")
+config = os.getenv("TOKEN")
 
 intents = discord.Intents.default()
 intents.members = True
