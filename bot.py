@@ -123,7 +123,7 @@ async def hug2(ctx, utilisateur: discord.Member):
 @bot.event
 async def on_message(message):
     # do some extra stuff here
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Spider-Man: No Way Home"))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Shrek 2"))
     await bot.process_commands(message)
 
 loop = asyncio.get_event_loop()
